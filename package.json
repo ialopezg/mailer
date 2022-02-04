@@ -1,10 +1,10 @@
 {
   "name": "mailer",
-  "version": "0.0.2",
-  "description": "",
-  "author": "",
+  "version": "0.0.3",
+  "description": "A microservice that handles the queue 🎢 of sending emails to confirm create of account.",
+  "author": "Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
