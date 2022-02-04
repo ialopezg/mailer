@@ -8,7 +8,10 @@ export class MailController {
   constructor(private readonly _mailService: MailService) {}
 
   @EventPattern({ cmd: 'send-message' })
-  sendConfirmationEmail(emailAddress: string): Promise<void> {
-    return this._mailService.sendConfirmationEmail(emailAddress);
+  async sendConfirmationEmail(
+    emailAddress: string,
+    comfirmUrl: string,
+  ): Promise<void> {
+    return this._mailService.sendConfirmationEmail(emailAddress, comfirmUrl);
   }
 }

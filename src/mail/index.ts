@@ -3,7 +3,6 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
 import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { JwtModule } from '@nestjs/jwt';
 
 import { MAIL_QUEUE } from './constants';
 import { MailController } from './controllers';
@@ -34,18 +33,6 @@ import { MailService } from './services';
         },
       }),
       inject: [ConfigService],
-    }),
-    JwtModule.registerAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: async (configService: ConfigService) => ({
-        secret: configService.get('JWT_VERIFICATION_TOKEN_SECRET'),
-        signOptions: {
-          expiresIn: `${configService.get(
-            'JWT_VERIFICATION_TOKEN_EXPIRATION_TIME',
-          )}s`,
-        },
-      }),
     }),
     BullModule.registerQueue({ name: MAIL_QUEUE }),
   ],
