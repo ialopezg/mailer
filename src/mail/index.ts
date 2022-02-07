@@ -3,6 +3,7 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
 import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { join } from 'path';
 
 import { MAIL_QUEUE } from './constants';
 import { MailController } from './controllers';
@@ -27,8 +28,10 @@ import { MailService } from './services';
         },
         defaults: { from: configService.get<string>('EMAIL_FROM') },
         template: {
-          dir: __dirname + '/templates',
-          adapter: new HandlebarsAdapter(),
+          dir: join(__dirname, 'templates'),
+          adapter: new HandlebarsAdapter(undefined, {
+            inlineCssEnabled: false,
+          }),
           options: { strict: true },
         },
       }),

@@ -39,10 +39,11 @@ describe('MailService', () => {
   });
 
   it('should dispatch job', async () => {
-    await service.sendConfirmationEmail(
-      'test@test.com',
-      'http://link.com/?token=ey',
-    );
+    await service.sendEmail({
+      action: 'REGISTRATION',
+      emailAddress: 'test@test.com',
+      confirmUrl: 'http://link.com/?token=ey',
+    });
 
     expect(exampleQueueMock.add).toHaveBeenCalledWith('CONFIRM_REGISTRATION', {
       confirmUrl: 'http://link.com/?token=ey',
