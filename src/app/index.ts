@@ -24,6 +24,8 @@ import { MailModule } from 'src/mail';
         EMAIL_PORT: Joi.number().required(),
         EMAIL_ADDRESS: Joi.string().required(),
         EMAIL_PASSWORD: Joi.string().required(),
+        EMAIL_CONFIRMATION_URL: Joi.string().required(),
+        EMAIL_FROM: Joi.string().required(),
         QUEUE_HOST: Joi.string().required(),
         QUEUE_PORT: Joi.number().required(),
       }),

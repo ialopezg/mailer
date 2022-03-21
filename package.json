@@ -1,6 +1,6 @@
 {
   "name": "mailer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A microservice that handles the queue of sending emails.",
   "author": "Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)",
   "private": true,
