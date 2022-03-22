@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
-import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import { MicroserviceOptions, TcpOptions, Transport } from '@nestjs/microservices';
 import { AppModule } from './app';
 
 async function bootstrap(): Promise<void> {
@@ -17,7 +17,7 @@ async function bootstrap(): Promise<void> {
     } as TcpOptions,
   );
 
-  await app.listenAsync();
+  await app.listen();
 }
 
 void bootstrap();
